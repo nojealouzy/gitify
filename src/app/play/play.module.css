@@ -1,0 +1,238 @@
+.playPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ---- Top Bar ---- */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 20px;
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+.brandIcon { font-size: 0.9rem; }
+.brandText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--blue);
+}
+
+.levelIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.levelLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.topProgress {
+  flex: 1;
+  max-width: 200px;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.topProgressFill {
+  height: 100%;
+  background: var(--gradient-green);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.topXP {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding: 4px 12px;
+  background: rgba(240, 192, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(240, 192, 0, 0.15);
+  white-space: nowrap;
+}
+
+/* ---- Main Layout ---- */
+.mainLayout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.leftPanel {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-subtle);
+}
+.fileTreeSection { flex: 1; overflow: hidden; }
+.gitGraphSection {
+  flex: 1;
+  overflow: hidden;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.centerPanel {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  padding: 0;
+}
+.centerPanel > * { width: 100%; }
+
+.rightPanel {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* ---- Confetti ---- */
+.confettiContainer {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+.confetti {
+  position: absolute;
+  top: -10px;
+  border-radius: 2px;
+  animation: confetti-fall linear forwards;
+}
+
+/* ---- XP Popup ---- */
+.xpPopup {
+  position: fixed;
+  top: 60px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--gold);
+  animation: xp-pop 1.5s ease forwards;
+  z-index: 100;
+  text-shadow: 0 0 20px rgba(240, 192, 0, 0.5);
+}
+
+/* ---- Celebration Overlay ---- */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+.celebrationCard {
+  text-align: center;
+  padding: 48px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  max-width: 420px;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-lg);
+}
+
+.celebIcon { font-size: 3.5rem; margin-bottom: 16px; }
+.celebrationCard h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.celebTitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.celebBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--purple-dim);
+  border: 1px solid rgba(188, 140, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.celebBadgeIcon { font-size: 1.2rem; }
+.celebXP {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 24px;
+  text-shadow: 0 0 20px rgba(240, 192, 0, 0.3);
+}
+.celebButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .leftPanel { width: 200px; }
+  .rightPanel { width: 250px; }
+}
+
+@media (max-width: 768px) {
+  .mainLayout { flex-direction: column; }
+  .leftPanel {
+    width: 100%;
+    flex-direction: row;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .fileTreeSection, .gitGraphSection { flex: 1; }
+  .gitGraphSection { border-top: none; border-left: 1px solid var(--border-subtle); }
+  .rightPanel {
+    width: 100%;
+    height: 200px;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .centerPanel { min-height: 300px; }
+}

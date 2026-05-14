@@ -1,0 +1,196 @@
+.panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.headerIcon { font-size: 0.85rem; }
+.headerTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.progressBadge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--blue-dim);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.levelInfo { padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); }
+.levelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.levelIcon { font-size: 1rem; }
+.narrative {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.progressBar {
+  height: 3px;
+  background: var(--border-subtle);
+  flex-shrink: 0;
+}
+.progressFill {
+  height: 100%;
+  background: var(--gradient-green);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.objectives {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.objective {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  animation: fadeIn 0.2s ease;
+}
+.objective:last-child { border-bottom: none; }
+
+.objectiveMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.checkbox { font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+
+.objectiveText {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.completed .objectiveText {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.active .objectiveText {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.hintBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  margin-left: 28px;
+  padding: 3px 10px;
+  background: var(--yellow-dim);
+  border: 1px solid rgba(210, 153, 34, 0.2);
+  border-radius: 6px;
+  color: var(--yellow);
+  font-size: 0.7rem;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.hintBtn:hover { background: rgba(210, 153, 34, 0.2); }
+
+.hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  margin-left: 28px;
+  padding: 8px 10px;
+  background: var(--yellow-dim);
+  border-radius: 6px;
+  border: 1px solid rgba(210, 153, 34, 0.15);
+  animation: fadeIn 0.2s ease;
+}
+.hintIcon { font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+.hint code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--yellow);
+  word-break: break-all;
+}
+
+.commandsSection {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+.commandsHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.commandsTitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.commandsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.commandBadge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.completeMsg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--green-dim);
+  border-top: 1px solid rgba(63, 185, 80, 0.2);
+  font-weight: 700;
+  color: var(--green);
+  font-size: 0.85rem;
+  animation: fadeIn 0.4s ease;
+  flex-shrink: 0;
+}
+.completeIcon { font-size: 1.2rem; }
+.xpBadge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(240, 192, 0, 0.15);
+  color: var(--gold);
+}
